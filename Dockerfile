@@ -62,6 +62,7 @@ RUN sed -i "s@archive.ubuntu.com@${APT_MIRROR_UBUNTU}@g" /etc/apt/sources.list |
     apt-get install -y --no-install-recommends \
         sudo \
         tini \
+        ros-${ROS_DISTRO}-diagnostic-updater \
         ros-${ROS_DISTRO}-laser-proc \
     && \
     apt-get clean && \
