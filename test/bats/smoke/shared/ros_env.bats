@@ -50,3 +50,9 @@ setup() {
     run bash -c "source /opt/ros/${ROS_DISTRO}/setup.bash && ros2 pkg list | grep laser_proc"
     assert_success
 }
+
+@test "urg_node2 driver libraries all resolve" {
+    run bash -c "source /opt/ros/${ROS_DISTRO}/setup.bash && source /ros_ws/install/local_setup.sh && ldd /ros_ws/install/urg_node2/lib/liburg_node2.so"
+    assert_success
+    refute_output --partial "not found"
+}

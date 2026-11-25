@@ -15,6 +15,7 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   repos.
 
 ### Fixed
+- Install `ros-${ROS_DISTRO}-diagnostic-updater` in the `devel` stage. The driver links against `libdiagnostic_updater.so`, which was never installed, so `urg_node2_node` died at start (#65). Added a smoke test that fails when any library the driver links against is missing.
 - Restore `.env.example` (removed during APT-mirror refactor) so `setup.sh`'s IMAGE_NAME detection has its documented fallback.
 
 ### Changed
